@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div>
+      <img
+        id="image"
+        style="width: 200px; display: block; margin-bottom: 15px"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
+        alt=""
+      />
+      <button id="btn" onclick="imageURLChange()">Change Image</button>
+    </div>
+
+    <script>
+      function imageURLChange() {
+        document.getElementById("image").src =
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png";
+      }
+    </script>
+  </body>
+</html>

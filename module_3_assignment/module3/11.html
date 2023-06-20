@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul id="list_wrapper"></ul>
+      <button onclick="appendLi()">Add Item</button>
+    </div>
+
+    <script>
+      function appendLi() {
+        const items = ["JavaScript", "PHP", "C", "Ruby", "Python"];
+        var ul = document.getElementById("list_wrapper");
+
+        for (var i = 0; i < items.length; i++) {
+          var li = document.createElement("li");
+          var text = document.createTextNode(i + 1 + " " + items[i]);
+          console.log(items[i]);
+          li.appendChild(text);
+          ul.appendChild(li);
+        }
+      }
+    </script>
+  </body>
+</html>

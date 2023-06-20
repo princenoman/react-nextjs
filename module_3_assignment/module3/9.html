@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+      integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form name="myForm" onsubmit="return(validate())">
+        <span class="pln"> </span>
+        <fieldset>
+          <span class="pln"> </span>
+          <label for="nameField"><span class="pln">Name</span></label>
+          <span class="pln"> </span>
+          <input type="text" placeholder="Name" id="nameField" name="name" />
+
+          <span class="pln"> </span>
+          <label for="emailField"><span class="pln">Email</span></label>
+          <span class="pln"> </span>
+          <input type="text" placeholder="Email" id="emailField" name="email" />
+
+          <span class="pln"> </span>
+          <label for="passField"><span class="pln">Password</span></label>
+          <span class="pln"> </span>
+          <input
+            type="password"
+            placeholder="Password"
+            id="passField"
+            name="password"
+          />
+
+          <span class="pln"> </span>
+          <label for="confpassField">
+            <span class="pln">Confirm Password</span></label
+          >
+          <span class="pln"> </span>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            id="confpassField"
+            name="confpass"
+          />
+
+          <span class="pln"> </span>
+          <input class="button-primary" type="submit" value="Submit" />
+          <span class="pln"> </span>
+        </fieldset>
+        <span class="pln"> </span>
+      </form>
+      <span class="pln"> </span>
+
+      <script type="text/javascript">
+        console.log(document.myForm.name);
+        <!--
+        // Form validation code will come here.
+        function validate() {
+          //Name Field
+          if (document.myForm.name.value == "") {
+            alert("Please provide your name!");
+            document.myForm.name.focus();
+            return false;
+          } else if (!document.myForm.name.value.match(/^[A-Za-z]+$/)) {
+            alert("Please only use letters!");
+            document.myForm.name.focus();
+            return false;
+          }
+          //Email Field
+          if (document.myForm.email.value == "") {
+            alert("Please provide your Email!");
+            document.myForm.email.focus();
+            return false;
+          } else {
+            var emailID = document.myForm.email.value;
+            atpos = emailID.indexOf("@");
+            dotpos = emailID.lastIndexOf(".");
+
+            if (atpos < 1 || dotpos - atpos < 2) {
+              alert("Please enter correct email ID");
+              document.myForm.email.focus();
+              return false;
+            }
+
+            //Pasword Field
+            if (
+              document.myForm.password.value == "" &&
+              document.myForm.password.value.length < 8
+            ) {
+              alert("Password must be 8 Characters!");
+              document.myForm.password.focus();
+              return false;
+            } else if (document.myForm.password.value.length < 8) {
+              alert("Password must be 8 Characters!");
+              document.myForm.password.focus();
+              return false;
+            } else if (
+              !document.myForm.password.value.match(
+                /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/
+              )
+            ) {
+              alert(
+                "Your password must contain at least one uppercase letter, one lowercase letter, and one digit!"
+              );
+              document.myForm.password.focus();
+              return false;
+            }
+
+            //Confirm Field
+            if (document.myForm.confpass.value == "") {
+              alert("Please fill the confirm password field");
+              document.myForm.confpass.focus();
+              return false;
+            } else if (
+              document.myForm.confpass.value != document.myForm.password.value
+            ) {
+              alert("Password did not match!");
+              document.myForm.confpass.focus();
+              return false;
+            }
+          }
+          return true;
+        }
+        //-->
+      </script>
+    </div>
+  </body>
+</html>

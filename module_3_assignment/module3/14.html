@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="sendAjaxReq()">Send Ajax Get Request</button>
+    </div>
+
+    <script>
+      const url = "https://api.example.com/data";
+      const method = { method: "GET" };
+
+      function sendAjaxReq() {
+        fetch(url, method)
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err));
+      }
+    </script>
+  </body>
+</html>

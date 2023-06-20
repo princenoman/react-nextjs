@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      .content {
+        height: 100px;
+        width: 800px;
+        padding: 15px;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="content" class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolor
+        perspiciatis ex fugit iste est excepturi possimus dignissimos
+        consectetur facere? Ea possimus corrupti quas soluta eos a nostrum,
+        expedita facere.
+      </p>
+      <button id="btn">Change Text</button>
+    </div>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const content = document.getElementById("content");
+
+      btn.addEventListener("click", function () {
+        content.classList.add("highlight");
+      });
+    </script>
+  </body>
+</html>

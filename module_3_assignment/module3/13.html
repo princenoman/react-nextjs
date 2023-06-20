@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div>
+      <p class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolor
+        perspiciatis ex fugit iste est excepturi possimus dignissimos
+        consectetur facere? Ea possimus corrupti quas soluta eos a nostrum,
+        expedita facere.
+      </p>
+      <p class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolor
+        perspiciatis ex fugit iste est excepturi possimus dignissimos
+        consectetur facere? Ea possimus corrupti quas soluta eos a nostrum,
+        expedita facere.
+      </p>
+      <p class="content">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque dolor
+        perspiciatis ex fugit iste est excepturi possimus dignissimos
+        consectetur facere? Ea possimus corrupti quas soluta eos a nostrum,
+        expedita facere.
+      </p>
+      <button onclick="changeTextColor()">Change Text</button>
+    </div>
+
+    <script>
+      function changeTextColor() {
+        const contents = document.querySelectorAll(".content");
+        contents.forEach((content) => (content.style.color = "red"));
+      }
+    </script>
+  </body>
+</html>
