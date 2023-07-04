@@ -1,6 +1,5 @@
 import { products } from "./data.js";
 
-//Displaying all products
 var list = document.getElementById("products");
 
 products.forEach((product) => {
@@ -17,28 +16,6 @@ products.forEach((product) => {
           </a>
         </div>
   `;
-  //   entry.appendChild(document.createTextNode(product));
-  return list.appendChild(entry);
+
+  list.appendChild(entry);
 });
-
-//Individual Item total price
-// var cartItemsTotalPrices =
-//   document.getElementsByClassName("cart_items_total")[0];
-// var quantityInputs = document.getElementsByClassName("cart_items_quantity");
-// var total = 0;
-// for (var i = 0; i < quantityInputs.length; i++) {
-//   var input = quantityInputs[i];
-//   console.log(input.value);
-//   total = total + input.value * cartItemsTotalPrices.innerText;
-//   cartItemsTotalPrices.innerText = total;
-//   input.addEventListener("change", quantityChanged);
-// }
-
-{
-  /* <button
-type="button"
-class="btn-close"
-data-bs-dismiss="alert"
-aria-label="Close"
-></button> */
-}

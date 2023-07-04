@@ -1,4 +1,2 @@
-// clear cart -> done
-//adding quantity -> 
-// show price accrding to quantity
-// Show total price
+Netlify Link: https://eshoppingcart.netlify.app/
+Github Link: https://github.com/princenoman/react-nextjs/tree/main/module_4_assignment

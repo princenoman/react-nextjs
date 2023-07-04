@@ -1,10 +1,10 @@
-//Adding products in the cart
-
+// Adding products to the cart
 const addToCartBtns = document.getElementsByClassName("add_to_cart");
 for (var i = 0; i < addToCartBtns.length; i++) {
   var button = addToCartBtns[i];
   button.addEventListener("click", addToCart);
 }
+
 function addToCart(event) {
   var button = event.target;
   var item = button.parentElement;
@@ -16,8 +16,16 @@ function addToCart(event) {
 
 function addItemToCart(productName, productPrice) {
   var cartRow = document.createElement("div");
-  cartRow.innerText = productName;
-  var cartItems = document.getElementsByClassName("cart_items")[0];
+  cartRow.classList.add("alert");
+  cartRow.classList.add("alert-warning");
+  cartRow.classList.add("alert-dismissible");
+  cartRow.classList.add("fade");
+  cartRow.classList.add("show");
+  cartRow.classList.add("d-flex");
+  cartRow.classList.add("justify-content-between");
+  cartRow.classList.add("cart_row");
+  cartRow.role = "alert";
+
   var cartItemNames = document.getElementsByClassName("cart_item_name");
   for (var i = 0; i < cartItemNames.length; i++) {
     if (cartItemNames[i].innerText == productName) {
@@ -27,23 +35,20 @@ function addItemToCart(productName, productPrice) {
   }
 
   var cartRowContents = `
-            <div
-              class="alert alert-warning alert-dismissible fade show d-flex justify-content-between cart_row"
-              role="alert"
-            >
-              <strong class="cart_item_name">${productName}</strong>
-              
-              <div class="form-group ms-5 ps-5">
-                <input class="form-control w-50 cart_items_quantity" type="number" value="1" />
-              </div>
-              <p class="card-text cart_price">${productPrice}</p>
-              <p class="card-text cart_items_total">${productPrice}</p>
-              <a class="remove_cart_item" style="cursor:pointer">X</a>
-            
-            </div>
+    <strong class="cart_item_name">${productName}</strong>
+    <div class="form-group ms-5 ps-5">
+      <input class="form-control w-50 cart_items_quantity" type="number" value="1" />
+    </div>
+    <p class="card-text cart_price">${productPrice}</p>
+    <p class="card-text cart_items_total">${productPrice}</p>
+    <a class="remove_cart_item" style="cursor:pointer">X</a>
   `;
+
   cartRow.innerHTML = cartRowContents;
-  cartItems.append(cartRow);
+
+  var cartItems = document.getElementsByClassName("cart_items")[0];
+  cartItems.appendChild(cartRow);
+
   cartRow
     .getElementsByClassName("remove_cart_item")[0]
     .addEventListener("click", removeCartItem);
@@ -52,9 +57,8 @@ function addItemToCart(productName, productPrice) {
     .addEventListener("change", quantityChanged);
 }
 
-//Remove Cart Item
+// Remove Cart Item
 const removeCartItemBtns = document.getElementsByClassName("remove_cart_item");
-
 for (var i = 0; i < removeCartItemBtns.length; i++) {
   var button = removeCartItemBtns[i];
   button.addEventListener("click", removeCartItem);
@@ -71,6 +75,7 @@ function updateCartTotal() {
   var cartItemContainer = document.getElementsByClassName("cart_items")[0];
   var cartRows = cartItemContainer.getElementsByClassName("cart_row");
   var total = 0;
+
   for (var i = 0; i < cartRows.length; i++) {
     var cartRow = cartRows[i];
     var priceElement = cartRow.getElementsByClassName("cart_price")[0];
@@ -82,26 +87,30 @@ function updateCartTotal() {
     var quantity = quantityElement.value;
     total = total + price * quantity;
   }
-  total = Math.round(total * 100) / 100;
 
+  total = Math.round(total * 100) / 100;
   document.getElementsByClassName("total_cart_price")[0].innerText =
     "$" + total;
 }
 
-//clearing the cart
+// Clearing the cart
 const clearCartBtn = document.querySelector(".clear_cart");
 clearCartBtn.addEventListener("click", clearCartItems);
+
 function clearCartItems() {
   var cartItemContainer = document.getElementsByClassName("cart_items")[0];
   var cartRows = cartItemContainer.getElementsByClassName("cart_row");
-  var i = 0;
-  while (cartRows.length > i) cartRows[i].remove();
+
+  while (cartRows.length > 0) {
+    cartRows[0].remove();
+  }
+
   updateCartTotal();
 }
 
-//Update price according to quantity
+// Update price according to quantity
 var quantityInputs = document.getElementsByClassName("cart_items_quantity");
-var cartItemsTotalPrices = document.getElementsByClassName("cart_items_total");
+
 for (var i = 0; i < quantityInputs.length; i++) {
   var input = quantityInputs[i];
   input.addEventListener("change", quantityChanged);
@@ -109,16 +118,18 @@ for (var i = 0; i < quantityInputs.length; i++) {
 
 function quantityChanged(event) {
   var input = event.target;
-  var cartSingleTotalElement =
-    input.parentElement.parentElement.getElementsByClassName(
-      "cart_items_total"
-    )[0];
-  var cartSingleTotalPrice = parseFloat(
-    cartSingleTotalElement.innerText.replace("$", "")
-  );
   if (isNaN(input.value) || input.value <= 0) {
     input.value = 1;
   }
-  cartSingleTotalElement.innerText = "$" + input.value * cartSingleTotalPrice;
+  var cartRow = input.parentElement.parentElement;
+  var cartPriceElement = cartRow.getElementsByClassName("cart_price")[0];
+  var cartItemsTotalElement =
+    cartRow.getElementsByClassName("cart_items_total")[0];
+
+  var price = parseFloat(cartPriceElement.innerText.replace("$", ""));
+  var quantity = input.value;
+  var totalPrice = price * quantity;
+  cartItemsTotalElement.innerText = "$" + totalPrice.toFixed(2);
+
   updateCartTotal();
 }
