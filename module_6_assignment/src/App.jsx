@@ -3,11 +3,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 function App() {
+  const FooterInfo = {
+    copyRightText: "All rights reserved",
+    copyRightYear: 2023,
+    owner: "Prince Noman",
+  };
   return (
     <>
-      <Header />
+      <Header title="My React Website" />
       <Content />
-      <Footer />
+      <Footer footerInfo={FooterInfo} />
     </>
   );
 }
