@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-function TodoList({ todoList, completeTodo, deleteTodo }) {
+function TodoList({ todoList, deleteTodo }) {
   return (
     <div className="container mt-3">
       <div className="card">

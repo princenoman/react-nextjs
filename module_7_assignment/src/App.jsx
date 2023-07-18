@@ -24,11 +24,7 @@ function App() {
     <>
       <Header appName="Todo App" />
       <AddTodo addTodo={addTodo} />
-      <TodoList
-        todoList={listTodo}
-        deleteTodo={DeleteTodo}
-        // completeTodo={CompleteTodo}
-      />
+      <TodoList todoList={listTodo} deleteTodo={DeleteTodo} />
       <Footer />
     </>
   );
