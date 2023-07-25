@@ -1,0 +1,33 @@
+/* src/App.css */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.balance-summary {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+input,
+button {
+  font-family: "Poppins", sans-serif !important;
+}
