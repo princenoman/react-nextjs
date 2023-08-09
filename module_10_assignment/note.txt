@@ -1,0 +1,41 @@
+## app folder => It is added from NEXT JS 13. This app directory introduces the concepts of layouts, error components, and loading components while also leveraging React’s server components for building the UI.
+
+These are the files we need in app directory and some are optional:
+
+        ### layout.js =>  The layout.js file is used to define a UI that is shared across multiple places. A layout can render another layout or a page inside of it. A root layout is the top-most layout in the root app directory. It is used to define the <html> and <body> tags and other globally shared UI. Whenever a route changes to any component that is within the layout, its state is preserved because the layout component is not unmounted.
+
+        ### page.js => A page is UI that is unique to a route. 
+
+        ### loading.js => This component will be shown immediately on the first load as well as when you’re navigating between the sibling routes. By default, this file is a Server Component - but can also be used as a Client Component through the "use client" directive.
+
+        ### error.js => Creating the error.js file automatically wraps the page inside of a React error boundary. Whenever any error occurs inside the folder where this file is placed, the component will be replaced with the contents of this component.
+
+        ### global-error.js => This is used for Global error UI.
+
+        ### not-found.js => The not-found file is used to render UI when the notFound function is thrown within a route segment. Along with serving a custom UI, Next.js will also return a 404 HTTP status code.
+
+        ### route.js => A route file allows to create custom request handlers for a given route. The following HTTP methods are supported: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.
+
+        ### template.js => template.js is similar to the layout.js file, but upon navigation, a new instance of the component is mounted and the state is not preserved. Using layouts and templates allows us to take advantage of a concept known as partial rendering. While moving between routes inside of the same folder, only the layouts and pages inside of that folder are fetched and rendered.
+
+        ### default.js => It is used for Parallel route fallback page.
+
+## node_modules => It includes all the necessary files of package dependency for building the web application.
+
+## public => It is used for serving Static assets.
+
+## gitignore => It includes the Git files and folders to ignore.
+
+## jsconfig.json => It is the  configuration file for JavaScript. 
+
+## next.config.js => It is the configuration file for Next.js.
+
+## package-lock.json => It contains information about the dependencies/packages with their exact version numbers (*important) that were installed for a next js project.
+
+## package.json => It is the project dependencies and scripts.
+
+## postcss.config.js => It is the configuration file for Tailwind CSS.
+
+## README.md => It is the MarkDown file which includes the the guide or information about the project.
+
+## tailwind.config.js => This file is where we configure the paths to all HTML templates, JavaScript components, and any other source files that contain Tailwind class names.
